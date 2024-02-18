@@ -1,3 +1,5 @@
 ﻿namespace Pointocracy.Core.Models;
 
-public sealed class Participant(string name, uint votesPositve, uint votesNegative);
+public record struct ParticipantName(string String);
+
+public sealed class Participant(ParticipantName name, uint votesPositve, uint votesNegative);

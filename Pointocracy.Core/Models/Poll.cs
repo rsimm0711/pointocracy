@@ -1,9 +1,13 @@
 ﻿namespace Pointocracy.Core.Models;
 
+public record struct PollId(Guid Guid);
+public record struct PollName(string String);
+public record struct PollDescription(string? String);
+
 public class Poll(
-    Guid id,
-    string name,
-    string? description,
+    PollId id,
+    PollName name,
+    PollDescription description,
     PollState state,
     VoteRules voteRules,
     IEnumerable<Option> options,

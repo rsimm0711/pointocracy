@@ -1,3 +1,5 @@
 ﻿namespace Pointocracy.Core.Models;
 
-public record struct Vote(string ParticipantName, int Value);
+public record struct VoteValue(int Int);
+
+public record struct Vote(ParticipantName ParticipantName, VoteValue Value);
