@@ -20,6 +20,8 @@
     <ProjectReference Include="..\pointocracy.client\pointocracy.client.esproj">
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
+    <ProjectReference Include="..\Pointocracy.Core\Pointocracy.Core.csproj" />
+    <ProjectReference Include="..\Pointocracy.Infra\Pointocracy.Infra.csproj" />
   </ItemGroup>
 
   <ItemGroup>
