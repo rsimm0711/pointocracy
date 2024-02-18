@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pointocracy.Server", "Point
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "pointocracy.client", "pointocracy.client\pointocracy.client.esproj", "{302CD609-0ED2-48BC-BDE9-F10BEFF6C4CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pointocracy.Core", "Pointocracy.Core\Pointocracy.Core.csproj", "{E81413CD-60D1-4E0E-88BC-6021C9F12EA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pointocracy.Core", "Pointocracy.Core\Pointocracy.Core.csproj", "{E81413CD-60D1-4E0E-88BC-6021C9F12EA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pointocracy.Infra", "Pointocracy.Infra\Pointocracy.Infra.csproj", "{1806D41F-608D-49D6-86AA-DE8F22774A1C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pointocracy.Infra", "Pointocracy.Infra\Pointocracy.Infra.csproj", "{1806D41F-608D-49D6-86AA-DE8F22774A1C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pointocracy.Test", "Pointocracy.Test\Pointocracy.Test.csproj", "{10BF4062-E0E3-4379-82CA-FAE52AF9B8FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{1806D41F-608D-49D6-86AA-DE8F22774A1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1806D41F-608D-49D6-86AA-DE8F22774A1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1806D41F-608D-49D6-86AA-DE8F22774A1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10BF4062-E0E3-4379-82CA-FAE52AF9B8FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10BF4062-E0E3-4379-82CA-FAE52AF9B8FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10BF4062-E0E3-4379-82CA-FAE52AF9B8FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10BF4062-E0E3-4379-82CA-FAE52AF9B8FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
