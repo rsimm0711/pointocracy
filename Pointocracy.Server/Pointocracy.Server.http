@@ -1,0 +1,6 @@
+@Pointocracy.Server_HostAddress = http://localhost:5173
+
+GET {{Pointocracy.Server_HostAddress}}/
+Accept: application/json
+
+###
