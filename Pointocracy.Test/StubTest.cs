@@ -4,7 +4,6 @@ namespace Pointocracy.Test
 {
     public class Tests
     {
-
         [Test]
         public void StubTest()
         {
