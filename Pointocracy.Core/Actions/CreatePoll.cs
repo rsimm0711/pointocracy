@@ -7,7 +7,7 @@ public interface ICreatePoll
     Poll Create(string name, string description, VoteRules voteRules);
 }
 
-internal sealed class CreatePoll : ICreatePoll
+internal sealed class CreatePoll(IAddPollCommand addPollCommand) : ICreatePoll
 {
     public Poll Create(string name, string description, VoteRules voteRules)
     {
@@ -16,6 +16,7 @@ internal sealed class CreatePoll : ICreatePoll
         var pollDescription = new PollDescription(description);
 
         var poll = new Poll(pollId, pollName, pollDescription, PollState.Draft, voteRules, []);
+        addPollCommand.Add(poll);
         return poll;
     }
 }
