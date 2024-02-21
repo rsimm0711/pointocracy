@@ -11,4 +11,7 @@ public class Poll(
     PollState state,
     VoteRules voteRules,
     IEnumerable<Option> options,
-    PollResult? result = null);
+    PollResult? result = null)
+{
+    public PollId Id { get; } = id;
+}
