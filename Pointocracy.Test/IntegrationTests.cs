@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Pointocracy.Core.Actions;
 using Pointocracy.Infra;
+using Pointocracy.Infra.DataCommands;
 using Pointocracy.Server.Controllers;
 
 namespace Pointocracy.Test;
@@ -9,8 +10,7 @@ namespace Pointocracy.Test;
 public sealed class IntegrationTests
 {
     private CreatePollController testObj = null!;
-    private AddPollCommand addPollCommand = null!;
-    private PointocracyDb db = null!;
+    private PointocracyDb database = null!;
 
     [SetUp]
     public void SetUp()
@@ -18,20 +18,22 @@ public sealed class IntegrationTests
         var options = new DbContextOptionsBuilder<PointocracyDb>()
             .UseInMemoryDatabase("Pointocracy Test")
             .Options;
-        db = new PointocracyDb(options);
-        db.Database.EnsureCreated();
+        database = new PointocracyDb(options);
+        database.Database.EnsureCreated();
 
-        addPollCommand = new AddPollCommand(db);
-        var poll = new CreatePoll(addPollCommand);
-        testObj = new CreatePollController(poll);
+        var addPollCommand = new AddPollCommand(database);
+        var createPoll = new CreatePoll(addPollCommand);
+        var saveContext = new SaveContext(database);
+
+        testObj = new CreatePollController(createPoll, saveContext);
     }
 
     [TearDown]
     public void TearDown()
     {
         testObj.Dispose();
-        db.Database.EnsureDeleted();
-        db.Dispose();
+        database.Database.EnsureDeleted();
+        database.Dispose();
     }
 
     [Test]
@@ -48,7 +50,7 @@ public sealed class IntegrationTests
         Assert.Multiple(() =>
         {
             Assert.That(result, Is.TypeOf<OkResult>());
-            Assert.That(db.Polls.First().Id, Is.Not.EqualTo(Guid.Empty));
+            Assert.That(database.Polls.First().Id, Is.Not.EqualTo(Guid.Empty));
         });
     }
 }

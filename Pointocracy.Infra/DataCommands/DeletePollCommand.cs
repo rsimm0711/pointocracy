@@ -13,6 +13,5 @@ internal sealed class DeletePollCommand(PointocracyDb database) : IDeletePollCom
             Id = pollId.Guid
         };
         database.Polls.Remove(dao);
-        database.SaveChanges();
     }
 }
