@@ -1,6 +1,7 @@
 ﻿using Pointocracy.Core.Models;
-using Pointocracy.Infra;
 using Pointocracy.Infra.Models;
+
+namespace Pointocracy.Infra.DataCommands;
 
 internal sealed class AddPollCommand(PointocracyDb db) : IAddPollCommand
 {
@@ -12,6 +13,5 @@ internal sealed class AddPollCommand(PointocracyDb db) : IAddPollCommand
         };
 
         db.Add(dao);
-        db.SaveChanges();
     }
 }
