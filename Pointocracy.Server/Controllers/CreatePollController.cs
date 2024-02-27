@@ -15,7 +15,7 @@ public class CreatePollRequest
     public string Description { get; init; }
 }
 
-public sealed class CreatePollController(ICreatePoll createPoll, ISaveContext saveContext) : Controller
+public sealed class CreatePollController(ICreatePoll createPoll, ISaveContext saveContext) : PollController
 {
     [HttpPost("")]
     public async ValueTask<IActionResult> CreatePoll(CreatePollRequest request)
