@@ -5,7 +5,7 @@ using Pointocracy.Infra.DataCommands;
 
 namespace Pointocracy.Server.Controllers;
 
-public sealed class DeletePollController(IDeletePoll deletePoll, ISaveContext saveContext) : Controller
+public sealed class DeletePollController(IDeletePoll deletePoll, ISaveContext saveContext) : PollController
 {
     [HttpDelete("")]
     public async ValueTask<IActionResult> Delete(Guid id)
