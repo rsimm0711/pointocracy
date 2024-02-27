@@ -3,6 +3,7 @@ using Pointocracy.Core.Actions;
 using Pointocracy.Core.Models;
 using System.ComponentModel.DataAnnotations;
 using Pointocracy.Infra.DataCommands;
+using Pointocracy.Server.Dtos;
 
 namespace Pointocracy.Server.Controllers;
 
@@ -18,10 +19,11 @@ public class CreatePollRequest
 public sealed class CreatePollController(ICreatePoll createPoll, ISaveContext saveContext) : PollController
 {
     [HttpPost("")]
-    public async ValueTask<IActionResult> CreatePoll(CreatePollRequest request)
+    public async ValueTask<ActionResult<PollDto>> CreatePoll(CreatePollRequest request)
     {
-        createPoll.Create(request.Name, request.Description, VoteRules.Default);
+        var poll = createPoll.Create(request.Name, request.Description, VoteRules.Default);
+        var dto = PollDto.Create(poll);
         await saveContext.SaveAsync();
-        return Ok();
+        return new CreatedResult(dto.Id.ToString(), dto);
     }
 }
