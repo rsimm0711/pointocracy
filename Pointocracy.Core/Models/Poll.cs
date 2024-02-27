@@ -14,4 +14,7 @@ public class Poll(
     PollResult? result = null)
 {
     public PollId Id { get; } = id;
+    public PollName Name { get; } = name;
+    public PollDescription Description { get; } = description;
+    public PollState State { get; } = state;
 }
