@@ -10,10 +10,9 @@ namespace Pointocracy.Server.Controllers;
 public class CreatePollRequest
 {
     [Required]
-    public string Name { get; init; }
+    public required string Name { get; init; }
 
-    [Required]
-    public string Description { get; init; }
+    public string? Description { get; init; }
 }
 
 public sealed class CreatePollController(ICreatePoll createPoll, ISaveContext saveContext) : PollController

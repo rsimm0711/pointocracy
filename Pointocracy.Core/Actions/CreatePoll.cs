@@ -4,12 +4,12 @@ namespace Pointocracy.Core.Actions;
 
 public interface ICreatePoll
 {
-    Poll Create(string name, string description, VoteRules voteRules);
+    Poll Create(string name, string? description, VoteRules voteRules);
 }
 
 internal sealed class CreatePoll(IAddPollCommand addPollCommand) : ICreatePoll
 {
-    public Poll Create(string name, string description, VoteRules voteRules)
+    public Poll Create(string name, string? description, VoteRules voteRules)
     {
         var pollId = new PollId(Guid.NewGuid());
         var pollName = new PollName(name);
