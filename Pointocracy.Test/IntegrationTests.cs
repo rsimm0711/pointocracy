@@ -31,7 +31,6 @@ public sealed class IntegrationTests
     [TearDown]
     public void TearDown()
     {
-        testObj.Dispose();
         database.Database.EnsureDeleted();
         database.Dispose();
     }
