@@ -7,11 +7,7 @@ internal sealed class AddPollCommand(PointocracyDb db) : IAddPollCommand
 {
     public void Add(Poll poll)
     {
-        var dao = new PollDao
-        {
-            Id = poll.Id.Guid
-        };
-
+        var dao = PollDao.Create(poll);
         db.Add(dao);
     }
 }
