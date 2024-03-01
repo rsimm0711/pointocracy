@@ -2,6 +2,7 @@
 using Pointocracy.Core.Actions;
 using Pointocracy.Core.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Net;
 using Pointocracy.Infra.DataCommands;
 using Pointocracy.Server.Dtos;
 
@@ -18,6 +19,7 @@ public class CreatePollRequest
 public sealed class CreatePollController(ICreatePoll createPoll, ISaveContext saveContext) : PollController
 {
     [HttpPost("")]
+    [ProducesResponseType<PollDto>((int)HttpStatusCode.Created)]
     public async ValueTask<ActionResult<PollDto>> CreatePoll(CreatePollRequest request)
     {
         var poll = createPoll.Create(request.Name, request.Description, VoteRules.Default);
