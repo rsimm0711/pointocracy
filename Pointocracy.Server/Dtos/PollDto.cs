@@ -6,12 +6,12 @@ namespace Pointocracy.Server.Dtos;
 public sealed class PollDto
 {
     [Required]
-    public Guid Id { get; set; }
+    public required Guid Id { get; init; }
     [Required]
-    public required string Name { get; set; }
-    public string? Description { get; set; }
+    public required string Name { get; init; }
     [Required]
-    public PollState State { get; set; }
+    public required PollState State { get; init; }
+    public string? Description { get; init; }
 
     public static PollDto Create(Poll poll)
     {
@@ -19,8 +19,8 @@ public sealed class PollDto
         {
             Id = poll.Id.Guid,
             Name = poll.Name.String,
-            Description = poll.Description.String,
             State = poll.State,
+            Description = poll.Description.String,
         };
 
         return dto;
